@@ -1,12 +1,14 @@
-const intro = document.querySelector(".introduction");
+"use strict";
+
+var intro = document.querySelector(".introduction");
 
 function fadeOutIntro() {
   intro.style.opacity = 1;
-
   var fadeEffect = setInterval(function () {
     if (!intro.style.opacity) {
       intro.style.opacity = 1;
     }
+
     if (intro.style.opacity > 0) {
       intro.style.opacity -= 0.1;
     } else {
@@ -18,36 +20,27 @@ function fadeOutIntro() {
 }
 
 function generateBars() {
-  const visualizer = document.getElementById("visualizer");
-  const form = document.getElementById("configuration");
+  var visualizer = document.getElementById("visualizer");
+  var form = document.getElementById("configuration"); // Get data from form
 
-  // Get data from form
   serialize(form);
-
   var listInputData = document.getElementById("list-input").value;
   var algorithmChoice = document.getElementById("algorithmChoice").value;
   var orderChoice = document.getElementById("orderChoice").value;
-  var speedChoice = document.getElementById("speedChoice").value;
+  var speedChoice = document.getElementById("speedChoice").value; // Seperate list items
 
-  // Seperate list items
-  var listItems = listInputData.split(",");
+  var listItems = listInputData.split(","); // Generate bars based on input
 
-  // Generate bars based on input
   var generatedBars = [];
 
   for (var l = 0; l < listItems.length; l++) {
-    generatedBars.push(
-      '<div class="bar" style="height:' +
-        listItems[l] / 1 +
-        '%;"><span class="bar-value">' +
-        listItems[l] +
-        "</span></div>"
-    );
-  }
-
-  // Render bars
+    generatedBars.push('<div class="bar" style="height:' + listItems[l] / 1 + '%;"><span class="bar-value">' + listItems[l] + "</span></div>");
+  } // Render bars
   // clear html before appending bars
+
+
   visualizer.innerHTML = "";
+
   for (var i = 0; i < generatedBars.length; i++) {
     visualizer.insertAdjacentHTML("beforeend", generatedBars[i]);
   }

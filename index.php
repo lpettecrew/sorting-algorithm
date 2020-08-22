@@ -38,21 +38,18 @@
 
         <main class="application">
 
-            <div class="visualizer">
+            <div class="visualizer" id="visualizer">
                 <!-- Bars are to be dynamically rendered through javascript. -->
-                <div class="bar" style="height: 10%;"></div>
-                <div class="bar" style="height: 20%;"></div>
-                <div class="bar" style="height: 30%;"></div>
             </div>
 
-            <div class="configure">
+            <form class="configure" id="configuration">
                 <h2>Configuration:</h2>
                 <br>
                 <div class="list-input">
                     <p>Seperate list items with a comma.</p>
                     <p>Do not mix words and numbers.</p>
                     <br>
-                    <input type="text" class="input-list-items" placeholder="Bananas, Pears, Apples, Lemons...">
+                    <input type="text" class="input-list-items" id="list-input" placeholder="Bananas, Pears, Apples, Lemons...">
                     <br>
                     <br>
                     <p>Or...</p>
@@ -62,7 +59,7 @@
                 <br>
                 <hr>
                 <div class="buttons">
-                    <select class="select-btn">
+                    <select class="select-btn" id="algorithmChoice">
                         <option>Algorithm</option>
                         <option>Bubble sort</option>
                         <option>Merge sort</option>
@@ -70,7 +67,7 @@
                     </select>
 
                     <div class="toggle-button">
-                        <input type="checkbox" id="toggle" class="check-hidden">
+                        <input id="orderChoice" type="checkbox" id="toggle" class="check-hidden">
                         <label for="toggle" class="highlighted"></label>
                         <div class="toggle-options">
                             <span>ASC</span>
@@ -78,7 +75,7 @@
                         </div>
                     </div>
 
-                    <select class="select-btn">
+                    <select id="speedChoice" class="select-btn">
                         <option>Ultra slow</option>
                         <option>Slow</option>
                         <option>Medium</option>
@@ -86,12 +83,13 @@
                         <option>Ultra fast</option>
                     </select>
 
-                    <button class="btn">Go</button>
+                    <button id="start" type="button" class="btn" onclick="generateBars()">Go</button>
                 </div>
-            </div>
+            </form>
         </main>
     </div>
 
+    <script src="js/serialize-0.2.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

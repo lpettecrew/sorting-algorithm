@@ -68,7 +68,26 @@ body {
   position: relative;
   display: inline-block;
   height: 50%;
-  flex: 1;
+  flex: 2;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+}
+
+.bar-value {
+  opacity: 0;
+  transition: 250ms ease-in-out;
+  font-size: 2em;
+  color: black;
+}
+
+.bar:hover .bar-value {
+  opacity: 1;
+}
+
+.bar:hover {
+  background-color: #ffa238;
+  border: 2px solid rgb(226, 226, 226);
+  flex: 3;
 }
 
 /* Button styling */

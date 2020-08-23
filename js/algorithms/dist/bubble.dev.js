@@ -36,4 +36,28 @@ function bubbleSort(arr, HTMLarr, orderBy) {
       }
     }
   } while (swapped);
+
+  if (orderBy) {
+    listNumbers.reverse(); // Make HTMLarr an array
+
+    var newArray = [];
+
+    for (var xl = 0; xl < HTMLarr.length; xl++) {
+      newArray.push(HTMLarr[xl]);
+    }
+
+    HTMLarr = newArray.reverse(); // Clear visualizer
+
+    visualizer.innerHTML = "";
+    var generatedBars = [];
+    var divider = Math.max.apply(Math, listNumbers) / 100;
+
+    for (var v = 0; v < HTMLarr.length; v++) {
+      generatedBars.push('<div class="bar" id="bar-' + v + '" style="height:' + listNumbers[v] / divider + '%;"><span class="bar-value">' + listNumbers[v] + "</span></div>");
+    }
+
+    for (var xa = 0; xa < generatedBars.length; xa++) {
+      visualizer.insertAdjacentHTML("beforeend", generatedBars[xa]);
+    }
+  }
 }

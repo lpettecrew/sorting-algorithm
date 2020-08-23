@@ -17,6 +17,12 @@ function fadeOutIntro() {
   }, 200);
 }
 
+function arraymove(arr, fromIndex, toIndex) {
+  var element = arr[fromIndex];
+  arr.splice(fromIndex, 1);
+  arr.splice(toIndex, 0, element);
+}
+
 function generateBars() {
   const visualizer = document.getElementById("visualizer");
   const form = document.getElementById("configuration");
@@ -29,16 +35,22 @@ function generateBars() {
   var orderChoice = document.getElementById("orderChoice").value;
   var speedChoice = document.getElementById("speedChoice").value;
 
-  // Seperate list items
+  // Seperate list items and make them integers
   var listItems = listInputData.split(",");
+  for (var li = 0; li < listItems.length; li++) {
+    listItems[li] = Number(listItems[li]);
+  }
 
   // Generate bars based on input
   var generatedBars = [];
 
+  // Variable relative height
+  var divider = Math.max.apply(Math, listItems) / 100;
+
   for (var l = 0; l < listItems.length; l++) {
     generatedBars.push(
       '<div class="bar" style="height:' +
-        listItems[l] / 1 +
+        listItems[l] / divider +
         '%;"><span class="bar-value">' +
         listItems[l] +
         "</span></div>"

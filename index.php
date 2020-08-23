@@ -67,7 +67,7 @@
                     </select>
 
                     <div class="toggle-button">
-                        <input id="orderChoice" type="checkbox" id="toggle" class="check-hidden">
+                        <input id="orderChoice" name="toggle" type="checkbox" id="toggle" class="check-hidden">
                         <label for="toggle" class="highlighted"></label>
                         <div class="toggle-options">
                             <span>ASC</span>
@@ -91,6 +91,9 @@
 
     <script src="js/serialize-0.2.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/algorithms/bubble.js"></script>
+    <script src="js/algorithms/merge.js"></script>
+    <script src="js/algorithms/quick.js"></script>
 </body>
 
 </html>

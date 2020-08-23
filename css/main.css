@@ -11,6 +11,11 @@ GENERAL
   font-family: "Raleway", sans-serif;
 }
 
+a {
+  color: #009688;
+  text-decoration: none;
+}
+
 body {
   background-color: #212121;
   color: white;
@@ -39,6 +44,7 @@ body {
 
 .application {
   position: relative;
+  padding: 64px;
 }
 
 .configure {
@@ -88,6 +94,10 @@ body {
   background-color: #ffa238;
   border: 2px solid rgb(226, 226, 226);
   flex: 3;
+}
+
+.selected-bar {
+  background-color: rgb(16, 103, 202);
 }
 
 /* Button styling */
@@ -147,6 +157,7 @@ body {
   border-radius: 50px;
   cursor: pointer;
   transition: 250ms ease-in-out;
+  pointer-events: all;
 }
 
 .check-hidden {

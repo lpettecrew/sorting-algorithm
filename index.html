@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Algorithm</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/main.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <header class="header" id="top">
+        <h1>Sorting Algorithm Visualiser</h1>
+      </header>
+      <div class="introduction">
+        <h3>Introduction:</h3>
+        <br />
+        <p>
+          I started this project in hopes to further my knowledge and to
+          showcase my programming ability.
+        </p>
+        <p>
+          I stuck to only HTML, PHP, CSS and plain JavaScript to create this
+          projcect.
+        </p>
+        <p>No plugins, or code taken directly from the internet.</p>
+        <p>
+          A link to the source code for this project can be found on my GitHub
+          here:
+          <a href="https://github.com/lpettecrew/sorting-algorithm"
+            >https://github.com/lpettecrew/sorting-algorithm</a
+          >
+        </p>
+        <br />
+        <h3>How to use:</h3>
+        <br />
+        <p>Using this application is pretty straightforward.</p>
+        <p>
+          Select an algorithm to sort a list of either a randomly generated
+          numbers or words, or upload your own list to be sorted.
+        </p>
+        <p>
+          Select whether you want your list to be sorted in ascending or
+          descending order.
+        </p>
+        <p>Adjust the sorting speed.</p>
+        <p>Hit go and watch the magic happen before your eyes.</p>
+
+        <br />
+
+        <button class="btn begin-btn" onclick="fadeOutIntro()">Begin</button>
+      </div>
+
+      <main class="application">
+        <div class="visualizer" id="visualizer">
+          <!-- Bars are to be dynamically rendered through javascript. -->
+        </div>
+
+        <form class="configure" id="configuration">
+          <h2>Configuration:</h2>
+          <div id="errors"></div>
+          <br />
+          <div class="list-input">
+            <p>Seperate list items with a comma.</p>
+            <p>Do not mix words and numbers.</p>
+            <p>Enter a minimum of 3 items, up to 50 items.</p>
+            <br />
+            <input
+              type="text"
+              class="input-list-items"
+              id="list-input"
+              placeholder="Bananas, Pears, Apples, Lemons..."
+            />
+            <br />
+            <br />
+            <p>Or...</p>
+            <button type="button" class="btn" id="random-list-btn-words">
+              Generate random words
+            </button>
+            <button type="button" class="btn" onclick="generateNumbers()">
+              Generate random numbers
+            </button>
+          </div>
+          <br />
+          <hr />
+          <div class="buttons">
+            <select class="select-btn" id="algorithmChoice">
+              <option value="def">Algorithm</option>
+              <option value="bubble">Bubble sort</option>
+              <option value="merge">Merge sort</option>
+              <option value="quick">Quick sort</option>
+            </select>
+
+            <div class="toggle-button">
+              <input type="checkbox" id="toggle" class="check-hidden" />
+              <label for="toggle" class="highlighted"></label>
+              <div class="toggle-options">
+                <span>ASC</span>
+                <span>DESC</span>
+              </div>
+            </div>
+
+            <select id="speedChoice" class="select-btn">
+              <option value="ultra-slow">Ultra slow</option>
+              <option value="slow">Slow</option>
+              <option value="medium">Medium</option>
+              <option value="fast" selected>Fast</option>
+              <option value="ultra-fast">Ultra fast</option>
+            </select>
+
+            <button
+              id="start"
+              type="button"
+              class="btn"
+              onclick="setTimeout(generateBars, 750)"
+            >
+              Go
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script src="js/serialize-0.2.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/algorithms/bubble.js"></script>
+    <script src="js/algorithms/merge.js"></script>
+    <script src="js/algorithms/quick.js"></script>
+  </body>
+</html>

@@ -9,6 +9,7 @@ GENERAL
   margin: 0;
   padding: 0;
   font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -19,6 +20,11 @@ a {
 body {
   background-color: #212121;
   color: white;
+}
+
+.error-msg {
+  color: red;
+  font-weight: bolder;
 }
 
 .header {
@@ -45,6 +51,7 @@ body {
 .application {
   position: relative;
   padding: 64px;
+  display: none;
 }
 
 .configure {
@@ -76,13 +83,13 @@ body {
   height: 50%;
   flex: 2;
   cursor: pointer;
-  transition: 250ms ease-in-out;
+  overflow: hidden;
 }
 
 .bar-value {
   opacity: 0;
   transition: 250ms ease-in-out;
-  font-size: 2em;
+  font-size: 1em;
   color: black;
 }
 
@@ -98,6 +105,23 @@ body {
 
 .selected-bar {
   background-color: rgb(16, 103, 202);
+}
+
+/* Different speeds for bar transition */
+.ultra-slow .bar {
+  transition: 2s ease-in-out;
+}
+.slow .bar {
+  transition: 1s ease-in-out;
+}
+.medium .bar {
+  transition: 0.5s ease-in-out;
+}
+.fast .bar {
+  transition: 0.25s ease-in-out;
+}
+.ultra-fast .bar {
+  transition: 0.125s ease-in-out;
 }
 
 /* Button styling */
